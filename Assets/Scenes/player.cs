@@ -14,10 +14,6 @@ public class player : MonoBehaviour
     private int maxJumpCount = 2;
     private Rigidbody rb;
 
-    public UnityEvent<int> healthControl;
-    int currentLife = 50;
-
-
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
@@ -26,10 +22,6 @@ public class player : MonoBehaviour
     {
         Vector3 moveDirection = new Vector3(moveInput.x, 0f, moveInput.y);
         transform.Translate(moveDirection * speed * Time.deltaTime);
-    }
-    public void LoseLife()
-    {
-        healthControl?.Invoke(currentLife);
     }
     public void OnMove(InputAction.CallbackContext context)
     {
